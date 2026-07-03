@@ -1,0 +1,295 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    font-family: sans-serif;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#hedSection {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-16);  
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: var(--space-32);
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    color: var(--highlight-color); 
+    font-size: 1.8rem;
+}
+
+#navList {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-16);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.2s ease;
+}
+
+a:active, a:hover {
+    color: var(--highlight-color);
+}
+
+.themeSwitch {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.themeBtn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.themeBtn:hover {
+    color: var(--highlight-color);
+} 
+
+button svg {
+    pointer-events: none;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    gap: var(--space-32);
+    padding: var(--space-96) var(--space-16);
+}
+
+#titleArea {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+#titleArea.hidden {
+       display: none;
+}
+#content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    background-color: var(--secondary-color);
+    padding: var(--space-16);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+#pdfArea {
+    display: flex; 
+}
+
+#fileSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-16);
+    border: dotted var(--highlight-color) 3px; 
+    border-radius: 1rem;
+    padding: var(--space-32) var(--space-80);
+    background-color: var(--secondary-color); 
+    box-shadow: 0 8px 25px var(--shadow-color);  
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#fileArea {
+    display: none;
+}
+
+#inputL {
+    background-color: var(--highlight-color); 
+    color: #ffffff; 
+    width: max-content;      
+    white-space: nowrap;     
+    padding: var(--space-12) var(--space-24);   
+    border-radius: 5px;
+    border: none;
+    transition: all ease 0.2s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#inputL:active {
+    scale: 0.95;
+    filter: brightness(0.85); 
+}
+
+#statusMessage {
+    margin: var(--space-8);
+    transition: all ease 0.3s;
+}
+
+#footerSec {
+    position: fixed;
+    bottom: 0;
+    padding: var(--space-32);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 0 -2px 10px var(--shadow-color);
+    transition: background-color 0.3s ease;
+}
+
+#pStrong {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.footerText {
+    font-weight: 100;
+}
+
+#howItWorksOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--overlay-background);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+}
+
+#howItWorksOverlay.hidden {
+    display: none;
+}
+
+#howItWorksCard {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-32);
+    width: 90%;
+    max-width: 550px;
+    background-color: var(--card-background); 
+    backdrop-filter: blur(12px);
+    border: solid 1px var(--card-border);     
+    border-top-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    color: var(--text-color);
+    box-shadow: 0 15px 45px var(--shadow-color); 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#closeCardBtn {
+    font-size: 2rem;
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    color: var(--highlight-color);
+    cursor: pointer;
+    line-height: 1;
+}
+
+#compactStepsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+    margin-top: var(--space-16);
+}
+
+.stepText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+
+
+@media (min-width: 1024px) {
+    #hedSection {
+        gap: var(--space-80);
+    }
+    a {
+        font-size: 1.2rem;
+    }
+    #container {
+        gap: var(--space-32);
+    }
+    h1, h2 {
+        font-size: 2rem;
+    }
+    #content {
+        width: 600px;
+        min-height: 250px; 
+        height: auto;
+    }
+    #howItWorksCard {
+        max-width: 700px;
+    }
+    #howItWorksCard p {
+        font-size: 1rem;
+        padding: var(--space-8) 0;
+    }
+}
+
+@media (min-width: 1680px) {
+    #hedSection {
+        gap: var(--space-160);
+    }
+    a {
+        font-size: 1.2rem;
+    }
+    #container {
+        gap: var(--space-64);
+    }
+    h1, h2 {
+        font-size: 3rem;
+    }
+    #titleArea p {
+        font-size: 1.2rem;
+    }
+    #content {
+        width: 800px;
+        min-height: 300px; 
+        height: auto;
+    }
+    #fileSection {
+        gap: var(--space-32);
+    }
+    #fileSection > p {
+        font-size: 1.2rem;
+        font-weight: 100;
+    }
+    #howItWorksCard {
+        max-width: 850px;
+        padding: var(--space-40);
+    }
+    #howItWorksCard p {
+        font-size: 1.2rem;
+    }
+}
