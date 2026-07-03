@@ -71,7 +71,7 @@ function buildingData(users) {
     }
   });
 
-  const topSurname = Object.entries(frequencySurname).sort((a, b) => b - a);
+  const topSurname = Object.entries(frequencySurname).sort((a, b) => b[1] - a[1]);
 
   const populationPercentage = {};
   Object.keys(population).forEach(city => {
@@ -120,6 +120,7 @@ function renderDashboard(data) {
   data.topSurname.forEach(([surname, count]) => {
 
     let championCity = "";
+    let bigerPercentage = 0;
     let bigerCount = 0;
 
     Object.keys(data.surnameByCity).forEach(city => {
