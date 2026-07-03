@@ -104,7 +104,8 @@ function buildingData(users) {
     medianAge: medianAge,
     ages: sortdAges,
     mostPopulousCity: mostPopulousCity,
-    amountPopulation: amountPopulation
+    amountPopulation: amountPopulation,
+    topSurname: topSurname
   };
 }
 
@@ -113,6 +114,30 @@ function renderDashboard(data) {
    const titleArea = document.getElementById('titleArea');
    titleArea.classList.add('hidden');
   if (!container) return;
+
+  listTopSurnameHTML = []
+
+  data.topSurname.forEach(([surname, count]) => {
+
+    let championCity = "";
+    let bigerCount = 0;
+
+    Object.keys(data.surnameByCity).forEach(city => {
+
+      const cityCount = data.surnameByCity[city].filter(s => s === surname).length;
+      if (cityCount > bigerCount) {
+        bigerCount = cityCount;
+        championCity = city;
+      }
+
+    });
+    let topSurnameHTML = `
+      <div class="dashboard-row">
+        <p> mais encontrando em <strong>${championCity}</strong> (${bigerCount})</p>
+      </div>
+    `;
+    listTopSurnameHTML.push(topSurnameHTML);
+  });
 
   let citiesHTML = "";
   for (const city in data.populationByCity) {
@@ -139,6 +164,7 @@ function renderDashboard(data) {
       <div class="dashboard-row">
         <span>${surname}</span>
         <span class="count-tag">${count} usuários</span>
+        <span class="badge">${listTopSurnameHTML[i] || ""}</span>
       </div>
     `;
   }
