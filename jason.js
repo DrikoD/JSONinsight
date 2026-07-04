@@ -171,48 +171,50 @@ function renderDashboard(data) {
   }
 
   container.innerHTML = `
-    <div id="pdfArea" class="dashboard-grid">   
-      <div class="dashboard-header">   
-        <div class="dashboard-card-hero-card">
-          <h3 class="card-title">Total de Usuários</h3>
-          <p class="big-number">${data.totalPopulation}</p>
-          <p class="small-text">Cadastrados</p>
+  <div id="pdfArea" class="dashboard-grid">
+    <div id="dashboard-header">
+        <div id="totalUsersCard" class="header-card">
+            <h3 class="card-title">Total de Usuários</h3>
+            <p class="big-number">${data.totalPopulation}</p>
+            <p class="small-text">Cadastrados</p>
         </div>
-        <div class="ages-card">
-          <h3 class="card-title">MÉTRICAS DE IDADE</h3>          
-          <div class="stat-item">
-            <p class="big-number">MÉDIA:</p>
-            <span class="big-number">${data.averageAge} anos</span>
-          </div>
-          <div class="stat-item">
-              <p class="small-text">MEDIANA:</p>
-              <span class="big-number">${data.medianAge} anos</span>
-          </div>
+        <div id="ageMetricsCard" class="header-card">
+            <h3 class="card-title">MÉTRICAS DE IDADE</h3>
+            <div id="metrics">
+                <div class="stat-item">
+                    <p class="small-text">MÉDIA:</p>
+                    <span class="big-number">${data.averageAge} anos</span>
+                </div>
+                <div class="stat-item">
+                    <p class="small-text">MEDIANA:</p>
+                    <span class="big-number">${data.medianAge} anos</span>
+                </div>
+            </div>
         </div>
-        <div class="city-card">
-          <h3 class="card-title">CIDADE MAIS POPULOSA</h3>
-          <p class="big-number">${data.mostPopulousCity}</p>
-          <p class="small-text">(${data.amountPopulation} usuários)</p>
+        <div id="mostPopulousCityCard" class="header-card">
+            <h3 class="card-title">CIDADE MAIS POPULOSA</h3>
+            <p class="big-number">${data.mostPopulousCity}</p>
+            <p class="small-text">(${data.amountPopulation} usuários)</p>
         </div>
-      </div>
-      <div class="dashboard-footer">
-        <div class="dashboard-card">
-          <h3>Distribuição por Cidade</h3>
-          <div>
-            <p>Cidade</p>
-            <p>Porcentagem</p>
-          <div class="list-container">
-            ${citiesHTML}
-          </div>
-        </div>
-        <div class="dashboard-card">
-          <h3>SOBRENOME PREDOMINANTE POR REGIÃO</h3>
-          <div class="list-container">
-            ${topSurnamesHTML}
-          </div>
-        </div>
-      </div>
     </div>
-  `;
+    <div id="dashboard-footer">
+        <div id="cityDistributionCard" class="dashboard-card">
+            <h3>Distribuição por Cidade</h3>
+            <div id="list-footer-card-row">
+                <p>Cidade</p>
+                <p>Porcentagem</p>
+            </div>
+            <div id="cityList" class="list-container">
+                ${citiesHTML}
+            </div>
+        </div>
+        <div id="topSurnamesCard" class="dashboard-card">
+            <h3>SOBRENOME PREDOMINANTE POR REGIÃO</h3>
+            <div id="topSurnamesList" class="list-container">
+                ${topSurnamesHTML}
+            </div>
+        </div>
+    </div>
+</div>`;
   //initPdfExport();
 }

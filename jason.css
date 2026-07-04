@@ -228,7 +228,89 @@ button svg {
     gap: var(--space-4);
 }
 
+#pdfArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-32);
+}
 
+#dashboard-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-32);
+}
+
+.header-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-16);
+    background-color: var(--card-background); 
+    backdrop-filter: blur(12px);
+    border: solid 1px var(--card-border);     
+    border-radius: var(--space-16);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: var(--text-color);
+}
+.big-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+.small-text {
+    font-weight: 100;
+    color: var(--text-color);
+}
+
+#ageMetricsCard {
+    display: flex;
+    flex-direction: column;
+}
+
+#metrics {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-16);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+#dashboard-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-32);
+    margin-bottom: var(--space-32);
+}
+#cityDistributionCard {
+    display: flex;
+    flex-direction: column;
+}
+
+#list-footer-card-row {
+    display: flex;
+    flex-direction: row;
+    
+    
+}
 
 @media (min-width: 1024px) {
     #hedSection {
