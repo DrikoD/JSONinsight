@@ -133,7 +133,7 @@ function renderDashboard(data) {
 
     });
     let topSurnameHTML = `
-      <div class="dashboard-row">
+      <div id="frequencyCard" class="dashboard-row">
         <p> mais encontrando em <strong>${championCity}</strong> (${bigerCount})</p>
       </div>
     `;
@@ -145,7 +145,7 @@ function renderDashboard(data) {
     const percentage = data.populationByCity[city];
     
     citiesHTML += `
-      <div class="dashboard-row">
+      <div id="frequencyByCity" class="dashboard-row">
         <span>${city}</span>
         <span class="badge">${percentage}</span>
       </div>
@@ -162,10 +162,10 @@ function renderDashboard(data) {
     const [surname, count] = surnamesList[i];
     
     topSurnamesHTML += `
-      <div class="dashboard-row">
-        <span>${surname}</span>
-        <span class="count-tag">${count} usuários</span>
-        <span class="badge">${listTopSurnameHTML[i] || ""}</span>
+      <div id="listSurname" class="dashboard-row">
+        <span id="surname">${surname}</span>
+        <span id="count-tag">${count} usuários</span>
+        <span>${listTopSurnameHTML[i] || ""}</span>
       </div>
     `;
   }

@@ -19,6 +19,7 @@
     --space-80: 5rem;     /* 80px  - Alinhamentos laterais estendidos */
     --space-96: 6rem;     /* 96px  - Margens extremas de topo/fundo */
     --space-160: 10rem;   /* 160px - Super gaps para telas ultra-wide */
+    --space-240: 15rem;   /* 240px - alturas de cards mobile first */
 
     --primary-color: #0B0B0D;     
     --secondary-color: #141519;   
@@ -27,7 +28,7 @@
     --textCdec-color: #533B8E;    
     --overlay-background: rgba(0, 0, 0, 0.75);
     --shadow-color: rgba(117, 59, 225, 0.25);
-    --card-background: rgba(20, 21, 25, 0.85);
+    --card-background: rgba(40, 42, 48, 0.85);
     --card-border: rgba(255, 255, 255, 0.1);
 }
 
