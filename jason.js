@@ -2,15 +2,16 @@ modeSelector()
 catchInput()
 let globalAppState = {}
 function modeSelector() {
-  const howItWorks = document.getElementById('navList');
+  const navList = document.getElementById('navList');
   const overlay = document.getElementById('howItWorksOverlay');
   const closeCard = document.getElementById('closeCardBtn');
   const queryTheme = document.getElementById('themeSwitch');
   const body = document.body;
   const titleArea = document.getElementById('titleArea');
+  
   titleArea.classList.remove('hidden')
 
-  howItWorks.addEventListener('click', function (event) {
+  navList.addEventListener('click', function (event) {
     const target = event.target
     if(target.name === 'navHowItWorks')
     overlay.classList.remove("hidden")
@@ -163,9 +164,11 @@ function renderDashboard(data) {
     
     topSurnamesHTML += `
       <div id="listSurname" class="dashboard-row">
-        <span id="surname">${surname}</span>
-        <span id="count-tag">${count} usuários</span>
-        <span>${listTopSurnameHTML[i] || ""}</span>
+          <div id="top-card-list-surame">
+              <span id="surname">${surname}</span>
+              <span id="count-tag">${count} usuários</span>
+          </div>
+          <span>${listTopSurnameHTML[i] || ""}</span>
       </div>
     `;
   }
