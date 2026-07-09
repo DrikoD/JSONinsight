@@ -2,15 +2,16 @@ modeSelector()
 catchInput()
 let globalAppState = {}
 function modeSelector() {
-  const howItWorks = document.getElementById('navList');
+  const navList = document.getElementById('navList');
   const overlay = document.getElementById('howItWorksOverlay');
   const closeCard = document.getElementById('closeCardBtn');
   const queryTheme = document.getElementById('themeSwitch');
   const body = document.body;
   const titleArea = document.getElementById('titleArea');
+  
   titleArea.classList.remove('hidden')
 
-  howItWorks.addEventListener('click', function (event) {
+  navList.addEventListener('click', function (event) {
     const target = event.target
     if(target.name === 'navHowItWorks')
     overlay.classList.remove("hidden")
@@ -133,7 +134,7 @@ function renderDashboard(data) {
 
     });
     let topSurnameHTML = `
-      <div class="dashboard-row">
+      <div id="frequencyCard" class="dashboard-row">
         <p> mais encontrando em <strong>${championCity}</strong> (${bigerCount})</p>
       </div>
     `;
@@ -145,7 +146,7 @@ function renderDashboard(data) {
     const percentage = data.populationByCity[city];
     
     citiesHTML += `
-      <div class="dashboard-row">
+      <div id="frequencyByCity" class="dashboard-row">
         <span>${city}</span>
         <span class="badge">${percentage}</span>
       </div>
@@ -162,57 +163,61 @@ function renderDashboard(data) {
     const [surname, count] = surnamesList[i];
     
     topSurnamesHTML += `
-      <div class="dashboard-row">
-        <span>${surname}</span>
-        <span class="count-tag">${count} usuários</span>
-        <span class="badge">${listTopSurnameHTML[i] || ""}</span>
+      <div id="listSurname" class="dashboard-row">
+          <div id="top-card-list-surame">
+              <span id="surname">${surname}</span>
+              <span id="count-tag">${count} usuários</span>
+          </div>
+          <span>${listTopSurnameHTML[i] || ""}</span>
       </div>
     `;
   }
 
   container.innerHTML = `
-    <div id="pdfArea" class="dashboard-grid">   
-      <div class="dashboard-header">   
-        <div class="dashboard-card-hero-card">
-          <h3 class="card-title">Total de Usuários</h3>
-          <p class="big-number">${data.totalPopulation}</p>
-          <p class="small-text">Cadastrados</p>
+  <div id="pdfArea" class="dashboard-grid">
+    <div id="dashboard-header">
+        <div id="totalUsersCard" class="header-card">
+            <h3 class="card-title">TOTAL DE USUÁRIOS</h3>
+            <p class="big-number">${data.totalPopulation}</p>
+            <p class="small-text">Cadastrados</p>
         </div>
-        <div class="ages-card">
-          <h3 class="card-title">MÉTRICAS DE IDADE</h3>          
-          <div class="stat-item">
-            <p class="big-number">MÉDIA:</p>
-            <span class="big-number">${data.averageAge} anos</span>
-          </div>
-          <div class="stat-item">
-              <p class="small-text">MEDIANA:</p>
-              <span class="big-number">${data.medianAge} anos</span>
-          </div>
+        <div id="ageMetricsCard" class="header-card">
+            <h3 class="card-title">MÉTRICAS DE IDADE</h3>
+            <div id="metrics">
+                <div class="stat-item">
+                    <p class="small-text">MÉDIA:</p>
+                    <span class="big-number">${data.averageAge} anos</span>
+                </div>
+                <div class="stat-item">
+                    <p class="small-text">MEDIANA:</p>
+                    <span class="big-number">${data.medianAge} anos</span>
+                </div>
+            </div>
         </div>
-        <div class="city-card">
-          <h3 class="card-title">CIDADE MAIS POPULOSA</h3>
-          <p class="big-number">${data.mostPopulousCity}</p>
-          <p class="small-text">(${data.amountPopulation} usuários)</p>
+        <div id="mostPopulousCityCard" class="header-card">
+            <h3 class="card-title">CIDADE MAIS POPULOSA</h3>
+            <p class="big-number">${data.mostPopulousCity}</p>
+            <p class="small-text">(${data.amountPopulation} usuários)</p>
         </div>
-      </div>
-      <div class="dashboard-footer">
-        <div class="dashboard-card">
-          <h3>Distribuição por Cidade</h3>
-          <div>
-            <p>Cidade</p>
-            <p>Porcentagem</p>
-          <div class="list-container">
-            ${citiesHTML}
-          </div>
-        </div>
-        <div class="dashboard-card">
-          <h3>SOBRENOME PREDOMINANTE POR REGIÃO</h3>
-          <div class="list-container">
-            ${topSurnamesHTML}
-          </div>
-        </div>
-      </div>
     </div>
-  `;
+    <div id="dashboard-footer">
+        <div id="cityDistributionCard" class="dashboard-card">
+            <h3>DISTRIBUIÇÃO POR CIDADE</h3>
+            <div id="list-footer-card-row">
+                <p>Cidade</p>
+                <p>Porcentagem</p>
+            </div>
+            <div id="cityList" class="list-container">
+                ${citiesHTML}
+            </div>
+        </div>
+        <div id="topSurnamesCard" class="dashboard-card">
+            <h3>SOBRENOME PREDOMINANTE POR REGIÃO</h3>
+            <div id="topSurnamesList" class="list-container">
+                ${topSurnamesHTML}
+            </div>
+        </div>
+    </div>
+</div>`;
   //initPdfExport();
 }
