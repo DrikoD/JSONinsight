@@ -20,6 +20,9 @@
     --space-96: 6rem;     /* 96px  - Margens extremas de topo/fundo */
     --space-160: 10rem;   /* 160px - Super gaps para telas ultra-wide */
     --space-240: 15rem;   /* 240px - alturas de cards mobile first */
+    --space-320: 20rem;   /* 320px - alturas 1 de cards desktop */
+    --space-400: 25rem;   /* 400px - alturas 2 de cards desktop */
+    --space-480: 30rem;   /* 480px - alturas 3 de cards desktop */
 
     --primary-color: #0B0B0D;     
     --secondary-color: #141519;   

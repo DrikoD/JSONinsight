@@ -6,9 +6,8 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: var(--primary-color);
-    font-family: sans-serif;
-    color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 #hedSection {
@@ -117,6 +116,10 @@ button svg {
     background-color: var(--secondary-color); 
     box-shadow: 0 8px 25px var(--shadow-color);  
     transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#fileSection p {
+    font-weight: 400;
 }
 
 #fileArea {
@@ -250,6 +253,7 @@ button svg {
     align-items: center;
     gap: var(--space-8);
     padding: var(--space-8) var(--space-16);
+    max-width: fit-content;
     background-color: var(--card-background); 
     backdrop-filter: blur(12px);
     border: solid 1px var(--card-border);     
@@ -261,7 +265,7 @@ button svg {
 
 .card-title {
     font-size: 1.2rem;
-    font-weight: 100;
+    font-weight: bold;
     color: var(--text-color);
 }
 .big-number {
@@ -270,7 +274,7 @@ button svg {
     color: var(--highlight-color);
 }
 .small-text {
-    font-weight: 100;
+    font-weight: 400;
     color: var(--text-color);
 }
 
@@ -366,7 +370,7 @@ button svg {
 .dashboard-card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-8);
+    padding: var(--space-16) var(--space-32);
     background-color: var(--card-background);
     border: solid 1px var(--card-border);
     border-radius: var(--space-16);
@@ -375,7 +379,7 @@ button svg {
     overflow-y: auto; 
     list-style-type: none;
     scroll-behavior: smooth;
-    transition: transform ease 0.3s, box-shadow ease 0.3s;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     gap: var(--space-12);
 }
 .dashboard-card::-webkit-scrollbar {
@@ -414,6 +418,28 @@ button svg {
         font-size: 1rem;
         padding: var(--space-8) 0;
     }
+
+    .header-card {
+        padding: var(--space-16) var(--space-32);
+        h3 {
+            font-size: 1.2rem;
+            margin: var(--space-8) 0;
+        }
+    }
+
+    .dashboard-card {
+        padding: var(--space-16) var(--space-48);
+        max-height: var(--space-320);
+
+        h3 {
+            font-size: 1.2rem;
+            margin: var(--space-8) 0;
+        }
+    }
+
+    #listSurname{
+        margin-top: var(--space-12);
+    }
 }
 
 @media (min-width: 1680px) {
@@ -442,7 +468,7 @@ button svg {
     }
     #fileSection > p {
         font-size: 1.2rem;
-        font-weight: 100;
+        font-weight: 400;
     }
     #howItWorksCard {
         max-width: 850px;
@@ -451,4 +477,82 @@ button svg {
     #howItWorksCard p {
         font-size: 1.2rem;
     }
+
+    .header-card {
+        margin-top: var(--space-48);
+        padding: var(--space-24) var(--space-48);
+        h3 {
+            font-size: 1.5rem;
+            margin: var(--space-12) 0;
+        }
+    }
+
+    .dashboard-card {
+        padding: var(--space-24) var(--space-48);
+        max-height: var(--space-400);
+
+        h3 {
+            font-size: 1.6rem;
+            margin: var(--space-12) 0;
+        }
+    }
+
+    
+}
+
+@media (min-width: 2400px) {
+    a {
+        font-size: 1.5rem;
+    }
+    #container {
+        gap: var(--space-96);
+    }
+    h1, h2 {
+        font-size: var(--space-40);
+    }
+
+    #howItWorksCard {
+        max-width: 1000px;
+        padding: var(--space-64);
+    }
+    #howItWorksCard p {
+        font-size: 1.5rem;
+    }       
+
+    .header-card {
+        margin-top: var(--space-64);
+        padding: var(--space-32) var(--space-64);
+        h3 {
+            font-size: 2rem;
+            margin: var(--space-16) 0;
+        }
+    }
+
+    .dashboard-card {
+        padding: var(--space-32) var(--space-80);
+        max-height: var(--space-480);
+
+        h3 {
+            font-size: 2rem;
+            margin: var(--space-16) 0;
+        }
+        
+    }
+
+    #list-footer-card-row p {
+        font-size: 1.5rem;
+    }
+
+    #frequencyByCity span {
+        font-size: 1.5rem;
+    }
+
+    .big-number {
+        font-size: 2rem;
+    }
+
+    .small-text {
+        font-size: 1.5rem;
+    }
+
 }

@@ -177,7 +177,7 @@ function renderDashboard(data) {
   <div id="pdfArea" class="dashboard-grid">
     <div id="dashboard-header">
         <div id="totalUsersCard" class="header-card">
-            <h3 class="card-title">Total de Usuários</h3>
+            <h3 class="card-title">TOTAL DE USUÁRIOS</h3>
             <p class="big-number">${data.totalPopulation}</p>
             <p class="small-text">Cadastrados</p>
         </div>
@@ -202,7 +202,7 @@ function renderDashboard(data) {
     </div>
     <div id="dashboard-footer">
         <div id="cityDistributionCard" class="dashboard-card">
-            <h3>Distribuição por Cidade</h3>
+            <h3>DISTRIBUIÇÃO POR CIDADE</h3>
             <div id="list-footer-card-row">
                 <p>Cidade</p>
                 <p>Porcentagem</p>
