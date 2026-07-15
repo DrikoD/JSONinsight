@@ -47,6 +47,18 @@ function catchInput() {
   })
 }
 
+function extractSurname(fullName) {
+  if (!fullName) return "";
+
+  const partsOfTheName = fullName.trim().split(/\s+/);
+  
+  if (partsOfTheName.length < 2) {
+    return "";
+  }
+
+  return partsOfTheName[partsOfTheName.length -1]
+}
+
 function buildingData(users) {
   const total = parseFloat(users.length)
   const sortdAges = users.map(user => Number(user.idade)).sort((a, b) => a - b);
@@ -57,8 +69,7 @@ function buildingData(users) {
 
   users.forEach(user => {
     const city = user.cidade;
-    const surname = user.nome.split(" ")[1] || "";
-
+    const surname = extractSurname(user.nome)
     population[city] = (population[city] || 0) + 1;
 
     if (surname) {
@@ -72,7 +83,7 @@ function buildingData(users) {
       surnameByCity[city].push(surname);
     }
   });
-
+  
   const topSurname = Object.entries(frequencySurname).sort((a, b) => b[1] - a[1]);
 
   const populationPercentage = [];
