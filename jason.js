@@ -8,6 +8,7 @@ function modeSelector() {
   const queryTheme = document.getElementById('themeSwitch');
   const body = document.body;
   const titleArea = document.getElementById('titleArea');
+  const renderCard = document.getElementById('pdfArea')
   
   titleArea.classList.remove('hidden')
 
@@ -46,8 +47,20 @@ function catchInput() {
   })
 }
 
+function extractSurname(fullName) {
+  if (!fullName) return "";
+
+  const partsOfTheName = fullName.trim().split(/\s+/);
+  
+  if (partsOfTheName.length < 2) {
+    return "";
+  }
+
+  return partsOfTheName[partsOfTheName.length -1]
+}
+
 function buildingData(users) {
-  const total = users.length;
+  const total = parseFloat(users.length)
   const sortdAges = users.map(user => Number(user.idade)).sort((a, b) => a - b);
 
   const population = {};
@@ -56,8 +69,7 @@ function buildingData(users) {
 
   users.forEach(user => {
     const city = user.cidade;
-    const surname = user.nome.split(" ")[1] || "";
-
+    const surname = extractSurname(user.nome)
     population[city] = (population[city] || 0) + 1;
 
     if (surname) {
@@ -71,21 +83,28 @@ function buildingData(users) {
       surnameByCity[city].push(surname);
     }
   });
-
+  
   const topSurname = Object.entries(frequencySurname).sort((a, b) => b[1] - a[1]);
 
-  const populationPercentage = {};
-  Object.keys(population).forEach(city => {
-    const percentage = (population[city] / total) * 100;
-    populationPercentage[city] = percentage.toFixed(1) + " %";
-  });
+  const populationPercentage = [];
+  let currentCity = Object.entries(population)
 
+    for (let i = 0; i < currentCity.length; i++) {
+     
+      const citie = currentCity[i][0]
+      const percentage = parseFloat(((currentCity[i][1] / total) * 100).toFixed(1))
+      
+      populationPercentage.push([citie, percentage])
+    }  
+
+    populationPercentage.sort((a, b) => b[1] - a[1])
+    
   const mostPopulousCity = Object.keys(population).sort((a, b) => population[b] - population[a])[0];
   const amountPopulation = population[mostPopulousCity]
 
   const sumAges = sortdAges.reduce((sum, age) => sum + age, 0);
   const averageAge = total > 0 ? (sumAges / total).toFixed(1) : 0;
-
+  
   let medianAge = 0;
   if (total > 0) {
     const mid = Math.floor(total / 2);
@@ -99,7 +118,6 @@ function buildingData(users) {
   return {
     totalPopulation: total,
     populationByCity: populationPercentage,
-    frequencySurname: frequencySurname,
     surnameByCity: surnameByCity,
     averageAge: averageAge,
     medianAge: medianAge,
@@ -135,50 +153,47 @@ function renderDashboard(data) {
     });
     let topSurnameHTML = `
       <div id="frequencyCard" class="dashboard-row">
-        <p> mais encontrando em <strong>${championCity}</strong> (${bigerCount})</p>
+        <p> mais encontrando em <strong>${championCity}</strong> (${bigerCount.toLocaleString('pt-BR')})</p>
       </div>
     `;
     listTopSurnameHTML.push(topSurnameHTML);
   });
 
   let citiesHTML = "";
-  for (const city in data.populationByCity) {
-    const percentage = data.populationByCity[city];
+  
+    data.populationByCity.forEach(item => {
     
     citiesHTML += `
       <div id="frequencyByCity" class="dashboard-row">
-        <span>${city}</span>
-        <span class="badge">${percentage}</span>
+        <span>${item[0]}</span>
+        <span class="badge">${item[1]} %</span>
       </div>
     `;
-  }
-
-  const surnamesList = Object.entries(data.frequencySurname);
-  surnamesList.sort((a, b) => b[1] - a[1]);
+  });
 
   let topSurnamesHTML = "";
-  const maxItems = Math.min(surnamesList.length, 5);
+  const maxItems = Math.min(data.topSurname.length, 5);
   
   for (let i = 0; i < maxItems; i++) {
-    const [surname, count] = surnamesList[i];
+    const [surname, count] = data.topSurname[i];
     
     topSurnamesHTML += `
       <div id="listSurname" class="dashboard-row">
           <div id="top-card-list-surame">
               <span id="surname">${surname}</span>
-              <span id="count-tag">${count} usuários</span>
+              <span id="count-tag">${count.toLocaleString('pt-BR')} usuários</span>
           </div>
           <span>${listTopSurnameHTML[i] || ""}</span>
       </div>
     `;
   }
 
-  container.innerHTML = `
+  content.innerHTML = `
   <div id="pdfArea" class="dashboard-grid">
     <div id="dashboard-header">
         <div id="totalUsersCard" class="header-card">
             <h3 class="card-title">TOTAL DE USUÁRIOS</h3>
-            <p class="big-number">${data.totalPopulation}</p>
+            <p class="big-number">${data.totalPopulation.toLocaleString('pt-BR')}</p>
             <p class="small-text">Cadastrados</p>
         </div>
         <div id="ageMetricsCard" class="header-card">
@@ -197,7 +212,7 @@ function renderDashboard(data) {
         <div id="mostPopulousCityCard" class="header-card">
             <h3 class="card-title">CIDADE MAIS POPULOSA</h3>
             <p class="big-number">${data.mostPopulousCity}</p>
-            <p class="small-text">(${data.amountPopulation} usuários)</p>
+            <p class="small-text">(${data.amountPopulation.toLocaleString('pt-BR')} usuários)</p>
         </div>
     </div>
     <div id="dashboard-footer">

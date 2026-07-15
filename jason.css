@@ -100,10 +100,6 @@ button svg {
     transition: background-color 0.3s ease;
 }
 
-#pdfArea {
-    display: flex; 
-}
-
 #fileSection {
     display: flex;
     flex-direction: column;
@@ -231,12 +227,17 @@ button svg {
     gap: var(--space-4);
 }
 
+#pdfArea.hidden {
+    display: none;
+}
+
 #pdfArea {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: var(--space-32);
+    z-index: 100;
 }
 
 #dashboard-header {
