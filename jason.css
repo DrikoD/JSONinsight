@@ -189,6 +189,10 @@ button svg {
 #howItWorksCard {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-12);
+    text-align: center;
     padding: var(--space-32);
     width: 90%;
     max-width: 550px;
@@ -200,6 +204,14 @@ button svg {
     color: var(--text-color);
     box-shadow: 0 15px 45px var(--shadow-color); 
     transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#howItWorksCard h3 {
+    font-size: var(--space-20);
+}
+
+#securityText {
+    font-size: var(--space-20);
 }
 
 #closeCardBtn {
@@ -520,6 +532,13 @@ button svg {
         font-size: 1.5rem;
     }       
 
+    #howItWorksCard h3 {
+    font-size: var(--space-24);
+}
+
+#securityText {
+    font-size: var(--space-24);
+}
     .header-card {
         margin-top: var(--space-64);
         padding: var(--space-32) var(--space-64);
