@@ -47,79 +47,6 @@
         </div>
     </header>
     <main id="container">
-        <div id="howItWorksOverlay" class="hidden" class="howItWorksOverlay">
-
-            <div id="howItWorksCard" class="howItWorksCard">
-
-                <button id="closeCardBtn" class="closeCardBtn" title="close">&times;</button>
-
-                <h2 class="cardTitle">Como Funciona?</h2>
-                <p class="cardSubtitle">Transforme seu JSON em estatísticas em 3 passos rápidos:</p>
-
-                <div class="compactStepsGroup">
-
-                    <div class="compactStep">
-                        <div class="stepIconWrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="stepSvg">
-                                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-                                <path d="M12 12v9" />
-                                <path d="m15 15-3-3-3 3" />
-                            </svg>
-                        </div>
-                        <div class="stepText">
-                            <h3>1. Importar</h3>
-                            <p>Arraste ou selecione seu arquivo <code>.json</code> local.</p>
-                        </div>
-                    </div>
-
-                    <div class="compactStep">
-                        <div class="stepIconWrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="stepSvg">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                            </svg>
-                        </div>
-                        <div class="stepText">
-                            <h3>2. Processar</h3>
-                            <p>O algoritmo valida e cruza os dados em milissegundos.</p>
-                        </div>
-                    </div>
-
-                    <div class="compactStep">
-                        <div class="stepIconWrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="stepSvg">
-                                <rect width="7" height="9" x="3" y="3" rx="1" />
-                                <rect width="7" height="5" x="14" y="3" rx="1" />
-                                <rect width="7" height="9" x="14" y="12" rx="1" />
-                                <rect width="7" height="5" x="3" y="16" rx="1" />
-                            </svg>
-                        </div>
-                        <div class="stepText">
-                            <h3>3. Analisar</h3>
-                            <p>Visualize o dashboard com gráficos e o censo de sobrenomes.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="compactPrivacyNote">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="privacySvg">
-                        <path
-                            d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z" />
-                    </svg>
-                    <span><strong>Segurança máxima:</strong> Processamento 100% local. Nenhum dado sai do seu
-                        navegador.</span>
-                </div>
-
-            </div>
-        </div>
         <section id="titleArea" class="hidden">
             <h2>TRANSFORME DADOS EM ESTATISTÍCAS</h2>
             <p>Arraste seu arquivo JSON bruto e veja a mágica dos dados acontecer localmente.</p>
@@ -136,6 +63,72 @@
             </div>
         </section>
     </main>
+    <div id="howItWorksOverlay" class="hidden">
+        <div id="howItWorksCard" class="howItWorksCard">
+    
+            <button id="closeCardBtn" class="closeCardBtn" title="close">&times;</button>
+    
+            <h2 class="cardTitle">Como Funciona?</h2>
+            <p class="cardSubtitle">Transforme seu JSON em estatísticas em 3 passos rápidos:</p>
+    
+            <div class="compactStepsGroup">
+                <div class="compactStep">
+                    <div class="stepIconWrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="stepSvg">
+                            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                            <path d="M12 12v9" />
+                            <path d="m15 15-3-3-3 3" />
+                        </svg>
+                    </div>
+                    <div class="stepText">
+                        <h3>1. Importar</h3>
+                        <p>Arraste ou selecione seu arquivo <code>.json</code> local.</p>
+                    </div>
+                </div>
+                <div class="compactStep">
+                    <div class="stepIconWrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="stepSvg">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                    </div>
+                    <div class="stepText">
+                        <h3>2. Processar</h3>
+                        <p>O algoritmo valida e cruza os dados em milissegundos.</p>
+                    </div>
+                </div>
+                <div class="compactStep">
+                    <div class="stepIconWrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="stepSvg">
+                            <rect width="7" height="9" x="3" y="3" rx="1" />
+                            <rect width="7" height="5" x="14" y="3" rx="1" />
+                            <rect width="7" height="9" x="14" y="12" rx="1" />
+                            <rect width="7" height="5" x="3" y="16" rx="1" />
+                        </svg>
+                    </div>
+                    <div class="stepText">
+                        <h3>3. Analisar</h3>
+                        <p>Visualize o dashboard com gráficos e o censo de sobrenomes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="compactPrivacyNote">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="privacySvg">
+                    <path
+                        d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 .76-.97l8-2a1 1 0 0 1 .48 0l8 2A1 1 0 0 1 20 6z" />
+                </svg>
+                <span><strong id="securityText">Segurança máxima:</strong> Processamento 100% local. Nenhum dado sai do seu
+                    navegador.</span>
+            </div>
+        </div>
+    </div>
     <footer id="footerSec">
         <p class="footer-text">
             <span class="footer-icon">🔒</span>

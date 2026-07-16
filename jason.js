@@ -188,7 +188,7 @@ function renderDashboard(data) {
     `;
   }
 
-  content.innerHTML = `
+  container.innerHTML = `
   <div id="pdfArea" class="dashboard-grid">
     <div id="dashboard-header">
         <div id="totalUsersCard" class="header-card">
